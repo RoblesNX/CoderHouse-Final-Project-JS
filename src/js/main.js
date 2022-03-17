@@ -1,9 +1,9 @@
 // Array de productos
 const productos = [
-    { id: 1, titulo: "Silla Andina", precio: 13640, stock: 100 },
-    { id: 2, titulo: "Silla Aruba", precio: 20990, stock: 10 },
-    { id: 3, titulo: "Silla Bélgica", precio: 13640, stock: 120 },
-    { id: 4, titulo: "Silla Berlín", precio: 21690, stock: 200 },
+    { id: 1, titulo: "Silla Verde", precio: 13640, stock: 100 },
+    { id: 2, titulo: "Silla Celeste", precio: 20990, stock: 10 },
+    { id: 3, titulo: "Silla Azul", precio: 13640, stock: 120 },
+    { id: 4, titulo: "Silla Amarilla", precio: 21690, stock: 200 },
 ];
 
 // Array de carrito
@@ -16,9 +16,8 @@ let comprar = 0;
 
 // Consulto que producto quiere agergar al carrito
 
-
-if (comprar !== 2 || carrito.length <= 4 ) {
-        const seleccionProducto = prompt(`Ingrese el producto que desea agregar al carrito:
+do {
+    const seleccionProducto = prompt(`Ingrese el producto que desea agregar al carrito:
     1. ${productos[0].titulo}
     2. ${productos[1].titulo}
     3. ${productos[2].titulo}
@@ -27,23 +26,23 @@ if (comprar !== 2 || carrito.length <= 4 ) {
 
         switch (seleccionProducto) {
             case "1":
-                agregarAlCarrito(productos[0].titulo);
-                alert(`Actualmente su carrito contiene estos productos ${productos[0].titulo}`);
+                agregarAlCarrito(productos[0]);
+                alert(`Usted acaba de agregar este producto a su carrito: ${productos[0].titulo}`);
                 total += productos[0].precio;
                 break;
             case "2":
-                agregarAlCarrito(productos[1].titulo);
-                alert(`Actualmente su carrito contiene estos productos ${productos[1].titulo}`);
+                agregarAlCarrito(productos[1]);
+                alert(`Usted acaba de agregar este producto a su carrito: ${productos[1].titulo}`);
                 total += productos[1].precio;
                 break;
             case "3":
-                agregarAlCarrito(productos[2].titulo);
-                alert(`Actualmente su carrito contiene estos productos ${productos[2].titulo}`);
+                agregarAlCarrito(productos[2]);
+                alert(`Usted acaba de agregar este producto a su carrito: ${productos[2].titulo}`);
                 total += productos[2].precio;
                 break;
             case "4":
-                agregarAlCarrito(productos[3].titulo);
-                alert(`Actualmente su carrito contiene estos productos ${productos[3].titulo}`);
+                agregarAlCarrito(productos[3]);
+                alert(`Usted acaba de agregar este producto a su carrito: ${productos[3].titulo}`);
                 total += productos[3].precio;
                 break;
             default:
@@ -55,17 +54,23 @@ if (comprar !== 2 || carrito.length <= 4 ) {
         2. No
         `)
 }
+while (comprar !== "2")
 
-alert(`El total de su compra es $ ${total}`);
+// Muestro por consola todos los items agregados al carrito
 
-for (let i = 0; i <= carrito.length; i++) {
-    console.log(carrito[i].titulo);
-}
+carrito.forEach(producto => {
+    console.log(producto.titulo)
+    console.log(producto.precio)
+})
+
+// Muestro el precio total del carrito
+
+console.log(`El importe total de su compra es $ ${total}`);
 
 /////////////////// DECLARO LAS FUNCIONES ////////////////
 
-function agregarAlCarrito(titulo) {
-    carrito.push(titulo);
+function agregarAlCarrito(producto) {
+    carrito.push(producto);
 }
 
 //////////////////////////////////////////////////////////
