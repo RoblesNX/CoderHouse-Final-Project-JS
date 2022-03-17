@@ -46,21 +46,21 @@ do {
                 total += productos[3].precio;
                 break;
             default:
-                alert(`Ingrese una opción correcta para continuar`)
+                alert(`Ingrese una opción correcta para continuar`);
         }
 
         comprar = prompt(`Desea seguir comprando?
         1. Si
         2. No
-        `)
+        `);
 }
-while (comprar !== "2")
+while (comprar !== "2");
 
 // Muestro por consola todos los items agregados al carrito
 
 carrito.forEach(producto => {
-    console.log(producto.titulo)
-    console.log(producto.precio)
+    console.log(producto.titulo);
+    console.log(producto.precio);
 })
 
 // Muestro el precio total del carrito
