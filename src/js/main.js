@@ -74,10 +74,12 @@ cardsGeneradas(productos);
 
 /////////////////// DECLARO LAS FUNCIONES ////////////////
 
+// Agregar al carrito
 function agregarAlCarrito(producto) {
     carrito.push(producto);
 }
 
+// Generar cards de productos
 function cardsGeneradas() {
     let acumuladorCards = ``;
     productos.forEach(producto => {
@@ -104,6 +106,7 @@ function cardsGeneradas() {
     agregarCardsEnHTML(acumuladorCards);
 }
 
+// Insertar cards en el HTML
 function agregarCardsEnHTML(cards) {
     document.getElementById("grupo-de-cards").innerHTML = cards;
 };
