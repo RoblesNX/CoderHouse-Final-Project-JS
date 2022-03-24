@@ -15,7 +15,7 @@ cardsGeneradas(productos);
 
 /////////////////// DECLARO LAS FUNCIONES ////////////////
 
-// Agregar al carrito
+// Agregar items al carrito y actualizar la cantidad
 const agregarAlCarrito = (idProducto) => {
     const productoCarrito = productos.find(producto => producto.id === idProducto);
     carrito.push(productoCarrito);
