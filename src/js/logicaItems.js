@@ -20,7 +20,7 @@ function itemsGeneradas(itemsAMostrar) {
                     </div>
                 </div>
             </td>
-            <td data-th="Price">${producto.precio}</td>
+            <td data-th="Price">$ ${producto.precio}</td>
             <td data-th="Quantity">
                 <input type="number" class="form-control form-control-lg text-center" value="1">
             </td>
