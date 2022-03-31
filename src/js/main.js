@@ -77,7 +77,6 @@ function buscarProducto() {
 }
 
 // Ejecutar búsqueda cuando presione enter en barra de búsqueda
-
 const imputBusqueda = document.getElementById("producto-buscado");
 
 imputBusqueda.addEventListener("keyup", function (event) {
@@ -87,4 +86,4 @@ imputBusqueda.addEventListener("keyup", function (event) {
     }
 });
 
-//////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////

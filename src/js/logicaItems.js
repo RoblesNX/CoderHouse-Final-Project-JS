@@ -1,5 +1,7 @@
+// Genero el listado de items en carrito
 itemsGeneradas(carrito);
 
+/////////////////// DECLARO LAS FUNCIONES ////////////////
 
 // Generar items de productos
 function itemsGeneradas(itemsAMostrar) {
@@ -50,3 +52,6 @@ function itemsGeneradas(itemsAMostrar) {
 function agregarItemsEnHTML(items) {
     document.getElementById("items-carrito").innerHTML = items;
 };
+
+
+///////////////////////////////////////////////////////////////////
