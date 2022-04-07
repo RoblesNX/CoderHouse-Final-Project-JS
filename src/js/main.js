@@ -1,9 +1,9 @@
 // Array de productos
 const productos = [
-    { id: 288588, titulo: "Silla Gris", precio: 13640, stock: 100, imagen: 'https://i.imgur.com/Y5KTMgQ.jpg'},
-    { id: 185151, titulo: "Silla Negra", precio: 20990, stock: 10, imagen: 'https://i.imgur.com/822KF2D.jpg'},
-    { id: 841181, titulo: "Silla Natural", precio: 13640, stock: 120, imagen: 'https://i.imgur.com/NrbOv64.jpg'},
-    { id: 844811, titulo: "Silla Blanca", precio: 21690, stock: 200, imagen: 'https://i.imgur.com/jaHa3a6.jpg'},
+    { id: 288588, titulo: "Silla Gris", precio: 13640, stock: 100, imagen: 'https://i.imgur.com/Y5KTMgQ.jpg' },
+    { id: 185151, titulo: "Silla Negra", precio: 20990, stock: 10, imagen: 'https://i.imgur.com/822KF2D.jpg' },
+    { id: 841181, titulo: "Silla Natural", precio: 13640, stock: 120, imagen: 'https://i.imgur.com/NrbOv64.jpg' },
+    { id: 844811, titulo: "Silla Blanca", precio: 21690, stock: 200, imagen: 'https://i.imgur.com/jaHa3a6.jpg' },
 ];
 
 // Llamo la función para generar la cards
@@ -26,7 +26,17 @@ const agregarAlCarrito = (idProducto) => {
 
     // Actualizo la cantidad de items en el HTML del carrito.
     document.getElementById("cantidad-carrito").innerHTML = carrito.length;
+
+    // Sweet alert
+    swal({
+        title: `Agregaste ${productoCarrito.titulo} a tu carrito`,
+        text: "Ya casi es tuyo!",
+        icon: "success",
+        button: "Continuar comprando!",
+      });
+
 }
+
 
 // Generar cards de productos
 function cardsGeneradas(productosAMostrar) {

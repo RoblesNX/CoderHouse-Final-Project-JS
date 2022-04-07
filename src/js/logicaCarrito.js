@@ -2,7 +2,7 @@
 let carrito = validarStorageCarrito();
 let precioTotal = 0;
 
-//
+// Actualizo el total del carrito en función de los items agregados.
 totalCarrito(carrito);
 
 /////////////////// DECLARO LAS FUNCIONES ////////////////
@@ -31,3 +31,4 @@ function totalCarrito(ArrayDeCarrito) {
 document.getElementById("subtotal-carrito").innerHTML = `$ ${precioTotal}`;
 
 /////////////////////////////////////////////////////////
+
