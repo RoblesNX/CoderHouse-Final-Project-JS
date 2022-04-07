@@ -1,5 +1,9 @@
 // Traigo el valor en storage del carrito de productos.
 let carrito = validarStorageCarrito();
+let precioTotal = 0;
+
+//
+totalCarrito(carrito);
 
 /////////////////// DECLARO LAS FUNCIONES ////////////////
 
@@ -16,4 +20,14 @@ function validarStorageCarrito() {
 // Actualizo la cantidad de items en el HTML del carrito.
 document.getElementById("cantidad-carrito").innerHTML = carrito.length;
 
- /////////////////////////////////////////////////////////
+// Recorro el array  y sumo los precios en una variable.
+function totalCarrito(ArrayDeCarrito) {
+    for (let i = 0; i < ArrayDeCarrito.length; i++) {
+        precioTotal += ArrayDeCarrito[i].precio;
+    }
+}
+
+// Actualizo el precio en el HTML
+document.getElementById("subtotal-carrito").innerHTML = `$ ${precioTotal}`;
+
+/////////////////////////////////////////////////////////
