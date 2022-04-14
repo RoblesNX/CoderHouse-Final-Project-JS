@@ -1,15 +1,3 @@
-// Array de productos
-const productos = [
-    { id: 288588, titulo: "Silla Gris", precio: 13640, stock: 100, imagen: 'https://i.imgur.com/Y5KTMgQ.jpg' },
-    { id: 185151, titulo: "Silla Negra", precio: 20990, stock: 10, imagen: 'https://i.imgur.com/822KF2D.jpg' },
-    { id: 841181, titulo: "Silla Natural", precio: 13640, stock: 120, imagen: 'https://i.imgur.com/NrbOv64.jpg' },
-    { id: 844811, titulo: "Silla Blanca", precio: 21690, stock: 200, imagen: 'https://i.imgur.com/jaHa3a6.jpg' },
-];
-
-// Llamo la función para generar la cards
-
-cardsGeneradas(productos);
-
 /////////////////// DECLARO LAS FUNCIONES ////////////////
 
 // Agregar items al carrito y actualizar la cantidad
@@ -37,44 +25,48 @@ const agregarAlCarrito = (idProducto) => {
 
 }
 
-
-// Generar cards de productos
-function cardsGeneradas(productosAMostrar) {
-    let acumuladorCards = ``;
-    productosAMostrar.forEach(producto => {
-        acumuladorCards += `<div class="card h-100">
+const generarCardsHTML = (arrayARecorrer) => {
+    let acumulador = ``;
+    arrayARecorrer.forEach((elemento) => {
+        acumulador += `
+        <div class="card h-100">
         <!-- Etiqueta de producto en "Sale" -->
         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Oferta</div>
         <!-- Imagen del producto -->
-        <img class="card-img-top" src="${producto.imagen}" alt="..." />
+        <img class="card-img-top" src="${elemento.image}" alt="..." />
         <!-- Detalles del producto -->
         <div class="card-body p-4">
             <div class="text-center">
                 <!-- Nombre del procuto -->
-                <h5 class="fw-bolder">${producto.titulo}</h5>
+                <h5 class="fw-bolder">${elemento.title}</h5>
                 <!-- Precio del producto-->
-                $ ${producto.precio}
+                $ ${elemento.price}
             </div>
         </div>
         <!-- Acciones en el proucto -->
         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
             <div class="text-center">
             <button 
-            onclick="agregarAlCarrito(${producto.id})"
+            onclick="agregarAlCarrito(${elemento.id})"
             class="btn btn-outline-dark mt-auto" href="#">
             Agregar al carrito
             </button>
             </div>
         </div>
     </div>`
-    })
-    agregarCardsEnHTML(acumuladorCards);
+    });
+    agregarCardsEnHTML(acumulador);
 }
+
+fetch("https://fakestoreapi.com/products")
+        .then((response) => response.json())
+        .then((data) => generarCardsHTML(data))
 
 // Insertar cards en el HTML
 function agregarCardsEnHTML(cards) {
-    document.getElementById("grupo-de-cards").innerHTML = cards;
+document.getElementById("grupo-de-cards").innerHTML = cards;
 };
+
 
 // Buscar productos
 function buscarProducto() {
@@ -97,3 +89,4 @@ imputBusqueda.addEventListener("keyup", function (event) {
 });
 
 /////////////////////////////////////////////////////////
+
