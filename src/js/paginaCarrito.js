@@ -12,15 +12,15 @@ function itemsGeneradas(itemsAMostrar) {
             <td data-th="Product">
                 <div class="row">
                     <div class="col-md-3 text-left">
-                        <img src="${producto.image}" alt=""
+                        <img src="${producto.imagen}" alt=""
                             class="img-fluid d-none d-md-block rounded mb-2 shadow ">
                     </div>
                     <div class="col-md-9 text-left mt-sm-2">
-                        <h4>${producto.title}</h4>
+                        <h4>${producto.nombre}</h4>
                     </div>
                 </div>
             </td>
-            <td data-th="Price">$ ${producto.price}</td>
+            <td data-th="Price">$ ${producto.precio}</td>
             <td data-th="Quantity">
                 <input type="number" class="form-control form-control-lg text-center" value="1">
             </td>
@@ -55,3 +55,9 @@ function agregarItemsEnHTML(items) {
 
 
 ///////////////////////////////////////////////////////////////////
+
+
+// Actualizo el precio en el HTML
+document.getElementById("subtotal-carrito").innerHTML = `$ ${precioTotal}`;
+
+/////////////////////////////////////////////////////////

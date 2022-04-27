@@ -27,8 +27,3 @@ function totalCarrito(ArrayDeCarrito) {
     }
 }
 
-// Actualizo el precio en el HTML
-document.getElementById("subtotal-carrito").innerHTML = `$ ${precioTotal}`;
-
-/////////////////////////////////////////////////////////
-
