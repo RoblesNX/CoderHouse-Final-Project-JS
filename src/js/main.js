@@ -8,10 +8,24 @@ generarCardsHTML(productos);
 function agregarAlCarrito (idProducto){
 
     // Buscar el producto a agregar.
-    const productoCarrito = productos.find(producto => producto.id === idProducto);
+    const productoEnCatalogo = productos.find(producto => producto.id === idProducto);
+
+    // // Busco si ya existe el producto en mi carrito.
+    // const productoEnCarrito = carrito.find(producto => producto.id === idProducto); 
+
+    // console.log(productoEnCatalogo);
+    // console.log(productoEnCarrito);
+
+    // if (productoEnCatalogo.id = productoEnCarrito.id) {
+    //   productoEnCatalogo.cantidadEnCarrito++;
+    // } else {
+    // // Envío el producto al array de carrito.
+    // productoEnCatalogo.cantidadEnCarrito++;
+    // carrito.push(productoEnCatalogo);
+    // }
 
     // Envío el producto al array de carrito.
-    carrito.push(productoCarrito);
+    carrito.push(productoEnCatalogo);
 
     // Actualizando el storage del carrito
     localStorage.setItem("carrito", JSON.stringify(carrito));
@@ -21,7 +35,7 @@ function agregarAlCarrito (idProducto){
 
     // Sweet alert
     swal({
-        title: `Agregaste ${productoCarrito.nombre} a tu carrito`,
+        title: `Agregaste ${productoEnCatalogo.nombre} a tu carrito`,
         text: "Ya casi es tuyo!",
         icon: "success",
         button: "Continuar comprando!",
