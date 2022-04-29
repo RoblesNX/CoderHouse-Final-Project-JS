@@ -68,5 +68,5 @@ document.getElementById("subtotal-carrito").innerHTML = `$ ${precioTotal}`;
 function actualizarCantidad (idProducto) {
     itemsGeneradas(carrito);
     totalCarrito(carrito);
-    document.getElementById("subtotal-carrito").innerHTML = precioTotal;
+    document.getElementById("subtotal-carrito").innerHTML = `$ ${precioTotal}`;
   }
