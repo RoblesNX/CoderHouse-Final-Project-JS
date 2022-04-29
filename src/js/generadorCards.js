@@ -25,9 +25,15 @@ const generarCardsHTML = (arrayARecorrer) => {
             <div class="text-center">
             <button 
             onclick="agregarAlCarrito(${producto.id})"
-            class="btn btn-outline-dark mt-auto" href="#">
+            class="btn btn btn-primary mt-auto" href="#">
             Agregar al carrito
             </button>
+            </div>
+            <div class="text-center mt-2">
+            <button onclick="detalleProducto(${producto.id})" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Detalles del producto
+            </button>
+
             </div>
         </div>
     </div>`

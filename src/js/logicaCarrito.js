@@ -85,13 +85,47 @@ function reducirCarrito(idProducto) {
         localStorage.setItem("carrito", JSON.stringify(carrito)); // Actualizo el carrito en storage
         actualizarItemsCarrito(carrito);
     }
-} 
+}
 
 
 function quitarCarrito(idProducto) {
     const productoARemover = carrito.find(producto => producto.id == idProducto);
-        productoARemover.cantidadEnCarrito = 0;
-        carrito.splice(carrito.indexOf(productoARemover), 1)
-        localStorage.setItem("carrito", JSON.stringify(carrito)); // Actualizo el carrito en storage
-        actualizarItemsCarrito(carrito);
-    }
+    productoARemover.cantidadEnCarrito = 0;
+    carrito.splice(carrito.indexOf(productoARemover), 1)
+    localStorage.setItem("carrito", JSON.stringify(carrito)); // Actualizo el carrito en storage
+    actualizarItemsCarrito(carrito);
+}
+
+function detalleProducto(idProducto) {
+    let detalleTitulo = ``;
+    let detalleDescripcion = ``;
+    const productoEnCatalogo = productos.find(producto => producto.id == idProducto);
+
+    // Actualizo titulo de la ventana del modal
+
+    detalleTitulo += `Descripción detallada del producto`
+    document.getElementById("staticBackdropLabel").innerHTML = detalleTitulo;
+
+    // Actualizo descripción del producto en el modal
+
+    detalleDescripcion += `<!-- Product section-->
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="row gx-4 gx-lg-5 align-items-center">
+                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="${productoEnCatalogo.imagen}" alt="..." /></div>
+                <div class="col-md-6">
+                    <h1 class="display-5 fw-bolder">${productoEnCatalogo.nombre}</h1>
+                    <div class="fs-5 mb-5">
+                        <span> Categoría: ${productoEnCatalogo.categoria}</span>
+                    </div>
+                    <p class="lead">${productoEnCatalogo.descripcion}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    `
+    document.getElementById("descripcion-producto").innerHTML = detalleDescripcion;
+    };
+    
+
+
