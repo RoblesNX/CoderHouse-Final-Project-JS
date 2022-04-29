@@ -4,8 +4,6 @@ itemsGeneradas(carrito);
 
 /////////////////// DECLARO LAS FUNCIONES ////////////////
 
-
-
 // Función creadora del HTML de los items de la página de carrito.
 
 function itemsGeneradas(itemsAMostrar) {
