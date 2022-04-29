@@ -1,9 +1,13 @@
-// Genero el listado de items en carrito
+// Llamado a la función generadora de los items en la página de carrito.
+
 itemsGeneradas(carrito);
 
 /////////////////// DECLARO LAS FUNCIONES ////////////////
 
-// Generar items de productos
+
+
+// Función creadora del HTML de los items de la página de carrito.
+
 function itemsGeneradas(itemsAMostrar) {
     let acumuladorItems = ``;
     itemsAMostrar.forEach(producto => {
@@ -22,20 +26,20 @@ function itemsGeneradas(itemsAMostrar) {
             </td>
             <td data-th="Price">$ ${producto.precio}</td>
             <td data-th="Quantity">
-                <input type="number" class="form-control form-control-lg text-center" value="1">
+            <span class="badge bg-dark text-white ms-1 rounded-pill" id="cantidad-producto">${producto.cantidadEnCarrito}</span>
             </td>
             <td class="actions" data-th="">
                 <div class="text-right">
 
-                    <button class="btn btn-white border-secondary bg-white btn-md mb-2">
+                    <button onclick="agregarAlCarrito(${producto.id}) ; actualizarCantidad(${producto.id})" class="btn btn-white border-primary bg-white btn-md mb-2">
                         <i class="bi bi-plus h3"></i>
                     </button>
 
-                    <button class="btn btn-white border-secondary bg-white btn-md mb-2">
+                    <button onclick="reducirCarrito(${producto.id}) ; actualizarCantidad(${producto.id})" class="btn btn-white border-secondary bg-white btn-md mb-2">
                         <i class="bi bi-dash h3"></i>
                     </button>
 
-                    <button class="btn btn-white border-secondary bg-white btn-md mb-2">
+                    <button onclick="quitarCarrito(${producto.id}) ; actualizarCantidad(${producto.id})" class="btn btn-white border-secondary bg-white btn-md mb-2">
                         <i class="bi bi-trash h3"></i>
                     </button>
 
@@ -46,18 +50,23 @@ function itemsGeneradas(itemsAMostrar) {
         <!-- Fin descripción producto -->`
     })
     agregarItemsEnHTML(acumuladorItems);
+    
 }
 
-// Insertar items en el HTML
+// Función que inserta el contenido de los items del carrito en el HTML
 function agregarItemsEnHTML(items) {
     document.getElementById("items-carrito").innerHTML = items;
 };
 
-
 ///////////////////////////////////////////////////////////////////
-
 
 // Actualizo el precio en el HTML
 document.getElementById("subtotal-carrito").innerHTML = `$ ${precioTotal}`;
 
 /////////////////////////////////////////////////////////
+
+function actualizarCantidad (idProducto) {
+    itemsGeneradas(carrito);
+    totalCarrito(carrito);
+    document.getElementById("subtotal-carrito").innerHTML = precioTotal;
+  }

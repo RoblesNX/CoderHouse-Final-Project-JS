@@ -1,4 +1,4 @@
-// Buscar productos
+// Barra de búsqueda de productos.
 function buscarProducto() {
     const nombreProductoBuscado = document.getElementById("producto-buscado").value.toUpperCase().trim();
     const productosEncontrados = productos.filter((producto) => {
@@ -8,7 +8,7 @@ function buscarProducto() {
     generarCardsHTML(productosEncontrados);
 }
 
-// Ejecutar búsqueda cuando presione enter en barra de búsqueda
+// Ejecutar búsqueda cuando presione enter en barra de búsqueda de productos.
 const imputBusqueda = document.getElementById("producto-buscado");
 
 imputBusqueda.addEventListener("keyup", function (event) {

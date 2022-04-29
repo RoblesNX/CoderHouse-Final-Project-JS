@@ -1,4 +1,4 @@
-// Función constructura de Productos para mi catálogo
+// Función constructura de productos para mi catálogo
 
 class Producto {
     constructor(nombre, id, marca, categoria, descripcion, precio, stock, imagen, cantidadEnCarrito) {
@@ -14,7 +14,7 @@ class Producto {
     };
 }
 
-// Listado de items de mi catálogo
+// Listado de productos de mi catálogo
 
 const EST_COD_1 = new Producto(
     'Estantería Bariloche',

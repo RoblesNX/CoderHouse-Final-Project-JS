@@ -1,6 +1,6 @@
 /////////////////// DECLARO LAS FUNCIONES ////////////////
 
-// Función creadora de mis cards de productos
+// Función creadora de mis cards de productos en el HTML
 
 const generarCardsHTML = (arrayARecorrer) => {
     let acumulador = ``;
