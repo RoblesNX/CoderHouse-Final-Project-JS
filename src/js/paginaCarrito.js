@@ -68,3 +68,11 @@ function actualizarCantidad (idProducto) {
     totalCarrito(carrito);
     document.getElementById("subtotal-carrito").innerHTML = `$ ${precioTotal}`;
   }
+
+
+  // Fetch de precio del dólar para el carrito.
+
+
+  fetch('https://api-dolar-argentina.herokuapp.com/api/dolaroficial')
+  .then(response => response.json())
+  .then(data => console.log(data));
