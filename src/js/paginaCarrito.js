@@ -69,10 +69,7 @@ function actualizarCantidad (idProducto) {
     document.getElementById("subtotal-carrito").innerHTML = `$ ${precioTotal}`;
   }
 
-
   // Fetch de precio del dólar para el carrito.
-
-
-  fetch('https://api-dolar-argentina.herokuapp.com/api/dolaroficial')
-  .then(response => response.json())
-  .then(data => console.log(data));
+    fetch("https://www.dolarsi.com/api/api.php?type=valoresprincipales")
+    .then(response => response.json())
+    .then(data => document.getElementById("dolar-blue").innerHTML = (data[1].casa.venta));
