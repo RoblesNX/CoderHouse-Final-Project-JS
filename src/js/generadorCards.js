@@ -1,7 +1,4 @@
-/////////////////// DECLARO LAS FUNCIONES ////////////////
-
-// Función creadora de mis cards de productos en el HTML
-
+// Creo mis cards de productos en el HTML
 const generarCardsHTML = (arrayARecorrer) => {
     let acumulador = ``;
     arrayARecorrer.forEach((producto) => {
@@ -41,8 +38,7 @@ const generarCardsHTML = (arrayARecorrer) => {
     agregarCardsEnHTML(acumulador);
 }
 
-// Función que inserta el contenido de cada card en el HTML
-
+// Inserto el contenido de cada card en el HTML
 function agregarCardsEnHTML(cards) {
 document.getElementById("grupo-de-cards").innerHTML = cards;
 };

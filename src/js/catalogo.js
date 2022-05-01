@@ -1,5 +1,4 @@
 // Función constructura de productos para mi catálogo
-
 class Producto {
     constructor(nombre, id, marca, categoria, descripcion, precio, stock, imagen, cantidadEnCarrito) {
         this.nombre = nombre;
@@ -15,7 +14,6 @@ class Producto {
 }
 
 // Listado de productos de mi catálogo
-
 const EST_COD_1 = new Producto(
     'Estantería Bariloche',
     1,
@@ -307,6 +305,5 @@ const SIL_COD_8 = new Producto(
     0
 );
 
-// Declaración de array de todos mis Productos
-
+// Declaración de array de todos mis productos
 const productos = [EST_COD_1, EST_COD_2, EST_COD_3, EST_COD_4, EST_COD_5, EST_COD_6, EST_COD_7, EST_COD_8, MES_COD_1, MES_COD_2, MES_COD_3, MES_COD_4, MES_COD_5, MES_COD_6, MES_COD_7, MES_COD_8, SIL_COD_1, SIL_COD_2, SIL_COD_3, SIL_COD_4, SIL_COD_5, SIL_COD_6, SIL_COD_7, SIL_COD_8];

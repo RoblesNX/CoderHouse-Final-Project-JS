@@ -1,11 +1,9 @@
 // Llamado a la función generadora de los items en la página de carrito.
-
 itemsGeneradas(carrito);
 
 /////////////////// DECLARO LAS FUNCIONES ////////////////
 
-// Función creadora del HTML de los items de la página de carrito.
-
+// Creo el HTML de los items de la página de carrito
 function itemsGeneradas(itemsAMostrar) {
     let acumuladorItems = ``;
     itemsAMostrar.forEach(producto => {
@@ -48,28 +46,25 @@ function itemsGeneradas(itemsAMostrar) {
         <!-- Fin descripción producto -->`
     })
     agregarItemsEnHTML(acumuladorItems);
-    
+
 }
 
-// Función que inserta el contenido de los items del carrito en el HTML
+// Inserto el contenido de los items del carrito en el HTML
 function agregarItemsEnHTML(items) {
     document.getElementById("items-carrito").innerHTML = items;
 };
 
-///////////////////////////////////////////////////////////////////
-
 // Actualizo el precio en el HTML
 document.getElementById("subtotal-carrito").innerHTML = `$ ${precioTotal}`;
 
-/////////////////////////////////////////////////////////
-
-function actualizarCantidad (idProducto) {
+// Actualizo la cantidad de productos del carrito
+function actualizarCantidad() {
     itemsGeneradas(carrito);
     totalCarrito(carrito);
     document.getElementById("subtotal-carrito").innerHTML = `$ ${precioTotal}`;
-  }
+}
 
-  // Fetch de precio del dólar para el carrito.
-    fetch("https://www.dolarsi.com/api/api.php?type=valoresprincipales")
+// Fetch de precio del dólar para el carrito
+fetch("https://www.dolarsi.com/api/api.php?type=valoresprincipales")
     .then(response => response.json())
     .then(data => document.getElementById("dolar-blue").innerHTML = (data[1].casa.venta));

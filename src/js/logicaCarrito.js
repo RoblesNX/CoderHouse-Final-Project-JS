@@ -1,10 +1,8 @@
-// Traigo el valor en storage del carrito de productos.
-
+// Traigo el valor en storage del carrito de productos
 let carrito = validarStorageCarrito();
 let precioTotal = 0;
 
-// Actualizo el total del carrito en función de los items agregados.
-
+// Actualizo el total del carrito en función de los items agregados
 const totalCarrito = (arrayCarrito) => {
     precioTotal = 0;
     arrayCarrito.forEach((producto) => {
@@ -15,10 +13,7 @@ const totalCarrito = (arrayCarrito) => {
 
 totalCarrito(carrito);
 
-/////////////////// DECLARO LAS FUNCIONES ////////////////
-
-// Inicio el carrito y compruebo si hay un carrito previamente guardado en el storage local.
-
+// Inicio el carrito y compruebo si hay un carrito previamente guardado en el storage local
 function validarStorageCarrito() {
     if (localStorage.getItem("carrito") != null) {
         const storageProductos = JSON.parse(localStorage.getItem("carrito"));
@@ -28,8 +23,7 @@ function validarStorageCarrito() {
     }
 }
 
-// // Actualizo la cantidad de items en el HTML del carrito en base a la cantidad de items en mi array de carrito.
-
+// Actualizo la cantidad de items en el HTML del carrito en base a la cantidad de items en mi array de carrito
 let acumuladorItems = 0;
 
 const actualizarItemsCarrito = (arrayCarrito) => {
@@ -44,20 +38,19 @@ const actualizarItemsCarrito = (arrayCarrito) => {
 
 actualizarItemsCarrito(carrito);
 
-
+// Agrego los items al carrito, valido stock, actualizo carrito en storage y muestro sweet alert.
 function agregarAlCarrito(idProducto) {
     const productoEnCarrito = carrito.find(producto => producto.id == idProducto);
     const productoEnCatalogo = productos.find(producto => producto.id == idProducto);
 
     const productoParaAgregar = productoEnCarrito || productoEnCatalogo;
 
-    if (productoParaAgregar.stock > productoParaAgregar.cantidadEnCarrito) { // ¿hay stock?
+    if (productoParaAgregar.stock > productoParaAgregar.cantidadEnCarrito) {
         productoParaAgregar.cantidadEnCarrito++;
         productoEnCarrito == undefined && carrito.push(productoParaAgregar);
-        localStorage.setItem("carrito", JSON.stringify(carrito)); // Actualizo el carrito en storage
+        localStorage.setItem("carrito", JSON.stringify(carrito));
         actualizarItemsCarrito(carrito);
 
-        // Sweet alert anunciando el producto que se acaba de agregar al carrito
         swal({
             title: `Agregaste ${productoEnCatalogo.nombre} a tu carrito`,
             text: "Ya casi es tuyo!",
@@ -65,7 +58,7 @@ function agregarAlCarrito(idProducto) {
             button: "Continuar comprando!",
         });
     } else {
-        // Sweet alert anunciando el producto que se acaba de agregar al carrito
+
         swal({
             title: `No hay stock del producto ${productoEnCatalogo.nombre}`,
             text: "Lo sentimos!",
@@ -75,6 +68,7 @@ function agregarAlCarrito(idProducto) {
     }
 }
 
+// Reduzco unidades en el carrito
 function reducirCarrito(idProducto) {
     const productoARemover = carrito.find(producto => producto.id == idProducto);
 
@@ -87,7 +81,7 @@ function reducirCarrito(idProducto) {
     }
 }
 
-
+// Quito unidades del carrito
 function quitarCarrito(idProducto) {
     const productoARemover = carrito.find(producto => producto.id == idProducto);
     productoARemover.cantidadEnCarrito = 0;
@@ -96,18 +90,13 @@ function quitarCarrito(idProducto) {
     actualizarItemsCarrito(carrito);
 }
 
+// Funcionalidad del botón para ver detalles del producto
 function detalleProducto(idProducto) {
     let detalleTitulo = ``;
     let detalleDescripcion = ``;
     const productoEnCatalogo = productos.find(producto => producto.id == idProducto);
-
-    // Actualizo titulo de la ventana del modal
-
     detalleTitulo += `Descripción detallada del producto`
     document.getElementById("staticBackdropLabel").innerHTML = detalleTitulo;
-
-    // Actualizo descripción del producto en el modal
-
     detalleDescripcion += `<!-- Product section-->
     <section class="py-5">
         <div class="container px-4 px-lg-5 my-5">
@@ -126,6 +115,3 @@ function detalleProducto(idProducto) {
     `
     document.getElementById("descripcion-producto").innerHTML = detalleDescripcion;
     };
-    
-
-
